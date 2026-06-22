@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WuWa Gallery</title>
+  <link href="output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+  <!-- Navbar -->
+  <nav class="bg-black  px-5 py-6  shadow-md sticky top-0 z-50 flex justify-between items-center">
+    <!-- Left: Logo + Title -->
+    <div class="flex items-center space-x-3">
+      <img src="img/image copy 3.png" alt="WuWa Logo" class="h-16 w-auto ">
+      <span class=" text-2xl sm:text-3xl md:text-5xl font-extrabold text-purple-400 tracking-wide animate-pulse drop-shadow-lg">
+        WuWa Showcase
+      </span>
+    </div>
+
+    <!-- Right: Futuristic Menu Button -->
+    <div class="relative">
+      <button onclick="toggleMenu()" 
+        class="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-2 rounded-lg hover:from-purple-700 hover:to-pink-700 transition text-lg font-semibold flex items-center shadow-lg shadow-purple-500/50">
+        ✦ Menu
+        <svg class="ml-2 w-4 h-4 transform transition-transform" id="menuArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+    </button>
+
+      <!-- Dropdown -->
+        <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg py-2 z-50">
+            <a href="#home" class="block px-4 py-2 text-sm hover:bg-gray-700">Home</a>
+            <a href="#gallery" class="block px-4 py-2 text-sm hover:bg-gray-700">Gallery</a>
+            <a href="#about" class="block px-4 py-2 text-sm hover:bg-gray-700">About</a>
+            <a href="#contact" class="block px-4 py-2 text-sm hover:bg-gray-700">Contact</a>
+    </div>
+  </nav>
+ <script>
+    function toggleMenu() {
+      const menu = document.getElementById('dropdownMenu');
+      const arrow = document.getElementById('menuArrow');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        arrow.classList.add('rotate-180');
+      } else {
+        menu.classList.add('hidden');
+        arrow.classList.remove('rotate-180');
+      }
+    }
+  </script>
+  <script>
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    modal.classList.remove('hidden');   // show modal
+  }
+
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+    modal.classList.add('hidden');      // hide modal
+  }
+</script>
+ <!-- Hero Section with Slideshow -->
+  <section id="home" 
+         style="background-image: url('wuwa backgroundpic/image copy 4.png');" 
+         class="relative h-screen w-full bg-cover bg-center bg-no-repeat text-center scroll-mt-40 mb-20">
+  <div class="text-white text-center">
+    <h2 class="text-4xl font-bold text-purple-400 mb-6 drop-shadow-[0_0_15px_rgba(168,85,247,0.9)]">
+      WUTHERING WAVES
+    </h2>
+    <p class="text-gray-300 mb-8">Welcome to My WuWa Gallery</p>
+  </div>
+
+  <!-- Slideshow -->
+  <div class="relative w-full max-w-2xl mx-auto overflow-hidden rounded-lg shadow-lg">
+    <div class="flex animate-slide">
+      <img src="wuwa backgroundpic/image.png" class="w-full object-cover" alt="Shorekeeper">
+      <img src="wuwa backgroundpic/image copy.png" class="w-full object-cover" alt="Cantarella">
+      <img src="wuwa backgroundpic/image copy 2.png" class="w-full object-cover" alt="Lucilla">
+      <img src="wuwa backgroundpic/image copy 3.png" class="w-full object-cover" alt="Cartethyia">
+    </div>
+  </div>
+<!-- Extra Homepage Section -->
+  <div class="max-w-2xl mx-auto flex items-center 
+              bg-gray-900 rounded-lg shadow-md p-6 cursor-pointer">
+    <!-- Sticker / Avatar -->
+    <img src="img/sticker.png" alt="WuWa Sticker" 
+         class="w-16 h-16 rounded-full shadow-md border-2 border-purple-500 mr-6">
+
+    <!-- Text Box -->
+    <div class="text-left">
+      <h3 class="text-xl font-bold text-purple-400 mb-3">
+        Welcome to WuWa
+      </h3>
+      <p class="text-gray-300 text-sm">
+        Build your ultimate WuWa team.  
+  Discover resonators, weapons, and strategies that shine.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Glow Effect CSS -->
+<style>
+
+  /* Glow only on About */
+  #about div:hover {
+    box-shadow: 0 0 20px #ec4899, 0 0 40px #f472b6;
+    background-color: #1f1f2e;
+    transform: scale(1.05);
+  }
+  #about div:active {
+    box-shadow: 0 0 25px #a855f7, 0 0 50px #facc15;
+    background-color: #2a2a3a;
+    transform: scale(0.97);
+  }
+</style>
+
+
+  <!-- Gallery Section -->
+ <section id="gallery" class="px-6 py-16 bg-gray-900 text-center scroll-mt-40">
+    <h2 class="text-white text-3xl font-bold text-center mb-6">Resonator Gallery</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Shorekeeper Card -->
+      <div onclick="openModal('shorekeeperModal')"
+           class="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:scale-105 transition cursor-pointer">
+        <img src="img/WutheringWaves_Shorekeeper-1024x576.jpg" alt="Shorekeeper" class="w-full h-48 object-cover">
+        <div class="p-4 text-center">
+          <h3 class="text-lg font-semibold">Shorekeeper</h3>
+        </div>
+      </div>
+        <!-- Cantarella Card -->
+    <div onclick="openModal('cantarellaModal')" 
+         class="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:scale-105 transition cursor-pointer">
+      <img src="img/Cantarella.png" alt="Cantarella" class="w-full h-48 object-cover">
+      <div class="p-4 text-center">
+        <h3 class="text-lg font-semibold">Cantarella</h3>
+      </div>
+  </div>
+       <!-- Lucilla Card -->
+    <div onclick="openModal('lucillaModal')" 
+         class="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:scale-105 transition cursor-pointer">
+      <img src="img/Lucilla.png" alt="Lucilla" class="w-full h-48 object-cover">
+      <div class="p-4 text-center">
+        <h3 class="text-lg font-semibold">Lucilla</h3>
+      </div>
+    </div>
+     <!-- Cartethyia Card -->
+    <div onclick="openModal('cartethyiaModal')" 
+         class="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:scale-105 transition cursor-pointer">
+      <img src="img/Cartethyia.png" alt="Cartethyia" class="w-full h-48 object-cover">
+      <div class="p-4 text-center">
+        <h3 class="text-lg font-semibold">Cartethyia</h3>
+      </div>
+  </div>
+      <!-- Augusta Card -->
+    <div onclick="openModal('augustaModal')" 
+         class="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:scale-105 transition cursor-pointer">
+      <img src="img/Augusta.png" alt="Augusta" class="w-full h-48 object-cover">
+      <div class="p-4 text-center">
+        <h3 class="text-lg font-semibold">Augusta</h3>
+      </div>
+    </div>
+        <!-- Iuno Card -->
+    <div onclick="openModal('iunoModal')" 
+         class="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:scale-105 transition cursor-pointer">
+      <img src="img/Iuno.png" alt="Iuno" class="w-full h-48 object-cover">
+      <div class="p-4 text-center">
+        <h3 class="text-lg font-semibold">Iuno</h3>
+      </div>
+    </div>
+         <!-- Zani Card -->
+    <div onclick="openModal('zaniModal')" 
+         class="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:scale-105 transition cursor-pointer">
+      <img src="img/Zani.png" alt="Zani" class="w-full h-48 object-cover">
+      <div class="p-4 text-center">
+        <h3 class="text-lg font-semibold">Zani</h3>
+      </div>
+    </div>
+        <!-- Hiyuki Card -->
+    <div onclick="openModal('hiyukiModal')" 
+         class="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:scale-105 transition cursor-pointer">
+      <img src="img/Hiyuki.png" alt="Hiyuki" class="w-full h-48 object-cover">
+      <div class="p-4 text-center">
+        <h3 class="text-lg font-semibold">Hiyuki</h3>
+      </div>
+    </div>
+    <!--Galbrena card-->
+    <div onclick="openModal('galbrenaModal')" 
+         class="bg-gray-800 rounded-lg shadow-md overflow-hidden hover:scale-105 transition cursor-pointer">
+      <img src="img/Galbrena.png" alt="Galbrena" class="w-full h-48 object-cover">
+      <div class="p-4 text-center">
+        <h3 class="text-lg font-semibold">Galbrena</h3>
+      </div>
+    </div>
+  </section>
+  <!-- Shorekeeper Modal -->
+  <div id="shorekeeperModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+  <div class="bg-gradient-to-r from-blue-900 via-black to-purple-900 text-white p-6 rounded-lg max-w-md shadow-2xl relative">
+    <h2 class="text-2xl font-extrabold mb-4 text-blue-300 drop-shadow-[0_0_12px_rgba(59,130,246,0.9)]">
+      ✦ Shorekeeper ✦
+    </h2>
+
+    <!-- Live video -->
+    <video autoplay loop muted playsinline 
+           class="w-full h-48 object-cover mb-4 rounded-lg shadow-lg">
+      <source src="video/shorekeeper-flower-butterflies-wuthering-waves-moewalls-com.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Build layout -->
+    <div class="grid grid-cols-2 gap-6">
+      
+      <!-- Left: Weapon -->
+      <div>
+        <p class="font-semibold mb-2">Weapon</p>
+        <div class="flex items-center space-x-3">
+          <img src="weaponImages/shorekeeper weapon.png" alt="Weapon" 
+               class="h-16 w-16 rounded border-2 border-blue-400 shadow-md">
+          <span class="text-sm">Stellar Symphony</span>
+        </div>
+      </div>
+
+      <!-- Right: Role -->
+      <div>
+        <p class="font-semibold mb-2">Role</p>
+        <p class="bg-blue-500/30 text-blue-200 font-bold px-2 py-1 rounded-lg inline-block 
+           drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] text-sm">
+          Support / Healer
+        </p>
+      </div>
+    </div>
+
+    
+      <!-- Team Build -->
+<div class="mt-6">
+  <p class="font-semibold mb-3">Team Build:</p>
+  <div class="flex justify-center space-x-8">
+    
+    <!-- Cantarella -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="img/carllota.png" alt="Cantarella" 
+           class="h-16 w-16 rounded-full border-2 border-pink-400 shadow-md">
+      <span class="mt-4 text-sm">Carllota</span>
+    </div>
+
+    <!-- Cartethyia -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="img/zhezhi.png" alt="Cartethyia" 
+           class="h-16 w-16 rounded-full border-2 border-green-400 shadow-md">
+      <span class="mt-4 text-sm">Zhezhi</span>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <!-- Close button -->
+    <button onclick="closeModal('shorekeeperModal')" 
+            class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.9)]">
+      Close
+    </button>
+  </div>
+</div>
+
+
+
+  <!--Cantarella Modal-->
+  <div id="cantarellaModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+  <div class="bg-gradient-to-r from-blue-900 via-black to-purple-900 text-white p-6 rounded-lg max-w-md shadow-2xl relative">
+    <h2 class="text-2xl font-extrabold mb-4 text-blue-300 drop-shadow-[0_0_12px_rgba(59,130,246,0.9)]">
+      ✦ Cantarella ✦
+    </h2>
+
+    <!-- Live video -->
+    <video autoplay loop muted playsinline 
+           class="w-full h-48 object-cover mb-4 rounded-lg shadow-lg">
+      <source src="video/cantarella-umbrella-wuthering-waves-moewalls-com.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Build layout -->
+    <div class="grid grid-cols-2 gap-6">
+      
+      <!-- Left: Weapon -->
+      <div>
+        <p class="font-semibold mb-2">Weapon</p>
+        <div class="flex items-center space-x-3">
+          <img src="weaponImages/Screenshot 2026-06-22 034852.png" alt="Weapon" 
+               class="h-16 w-16 rounded border-2 border-blue-400 shadow-md">
+          <span class="text-sm">Whispers of Sirens</span>
+        </div>
+      </div>
+
+      <!-- Right: Role -->
+      <div>
+        <p class="font-semibold mb-2">Role</p>
+        <p class="bg-blue-500/30 text-blue-200 font-bold px-2 py-1 rounded-lg inline-block 
+           drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] text-sm">
+          Support / Healer, Sub‑DPS
+        </p>
+      </div>
+    </div>
+
+    
+      <!-- Team Build -->
+<div class="mt-6">
+  <p class="font-semibold mb-3">Team Build:</p>
+  <div class="flex justify-center space-x-8">
+    
+    <!-- Cantarella -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/Screenshot 2026-06-22 035132.png" alt="Cantarella" 
+           class="h-16 w-16 rounded-full border-2 border-pink-400 shadow-md">
+      <span class="mt-4 text-sm">Jinhsi</span>
+    </div>
+
+    <!-- Cartethyia -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="img/zhezhi.png" alt="Cartethyia" 
+           class="h-16 w-16 rounded-full border-2 border-green-400 shadow-md">
+      <span class="mt-4 text-sm">Zhezhi</span>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <!-- Close button -->
+    <button onclick="closeModal('cantarellaModal')" 
+            class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.9)]">
+      Close
+    </button>
+  </div>
+</div>
+  <!-- Lucilla Modal -->
+   <div id="lucillaModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+  <div class="bg-gradient-to-r from-blue-900 via-black to-purple-900 text-white p-6 rounded-lg max-w-md shadow-2xl relative">
+    <h2 class="text-2xl font-extrabold mb-4 text-blue-300 drop-shadow-[0_0_12px_rgba(59,130,246,0.9)]">
+      ✦ Lucilla ✦
+    </h2>
+
+    <!-- Live video -->
+    <video autoplay loop muted playsinline 
+           class="w-full h-48 object-cover mb-4 rounded-lg shadow-lg">
+      <source src="video/lucilla-wuthering-waves-1-moewalls-com.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Build layout -->
+    <div class="grid grid-cols-2 gap-6">
+      
+      <!-- Left: Weapon -->
+      <div>
+        <p class="font-semibold mb-2">Weapon</p>
+        <div class="flex items-center space-x-3">
+          <img src="weaponImages/Lucilla.png" alt="Weapon" 
+               class="h-16 w-16 rounded border-2 border-blue-400 shadow-md">
+          <span class="text-sm">Freeze frame</span>
+        </div>
+      </div>
+
+      <!-- Right: Role -->
+      <div>
+        <p class="font-semibold mb-2">Role</p>
+        <p class="bg-blue-500/30 text-blue-200 font-bold px-2 py-1 rounded-lg inline-block 
+           drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] text-sm">
+          Sub‑DPS / Support Damage
+        </p>
+      </div>
+    </div>
+
+    
+      <!-- Team Build -->
+<div class="mt-6">
+  <p class="font-semibold mb-3">Team Build:</p>
+  <div class="flex justify-center space-x-8">
+    
+    <!-- Cantarella -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/hiyuki.png" alt="Cantarella" 
+           class="h-16 w-16 rounded-full border-2 border-pink-400 shadow-md">
+      <span class="mt-4 text-sm">Hiyuki</span>
+    </div>
+
+    <!-- Cartethyia -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/chisa.png" alt="Cartethyia" 
+           class="h-16 w-16 rounded-full border-2 border-green-400 shadow-md">
+      <span class="mt-4 text-sm">Chisa</span>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <!-- Close button -->
+    <button onclick="closeModal('lucillaModal')" 
+            class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.9)]">
+      Close
+    </button>
+  </div>
+</div>
+
+  <!-- Cartethyia Modal -->
+    <div id="cartethyiaModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+  <div class="bg-gradient-to-r from-blue-900 via-black to-purple-900 text-white p-6 rounded-lg max-w-md shadow-2xl relative">
+    <h2 class="text-2xl font-extrabold mb-4 text-blue-300 drop-shadow-[0_0_12px_rgba(59,130,246,0.9)]">
+      ✦ Cartethyia ✦
+    </h2>
+
+    <!-- Live video -->
+    <video autoplay loop muted playsinline 
+           class="w-full h-48 object-cover mb-4 rounded-lg shadow-lg">
+      <source src="video/cartethyia-wuthering-waves.960x540.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Build layout -->
+    <div class="grid grid-cols-2 gap-6">
+      
+      <!-- Left: Weapon -->
+      <div>
+        <p class="font-semibold mb-2">Weapon</p>
+        <div class="flex items-center space-x-3">
+          <img src="weaponImages/image.png" alt="Weapon" 
+               class="h-16 w-16 rounded border-2 border-blue-400 shadow-md">
+          <span class="text-sm">Defier's Thorn</span>
+        </div>
+      </div>
+
+      <!-- Right: Role -->
+      <div>
+        <p class="font-semibold mb-2">Role</p>
+        <p class="bg-blue-500/30 text-blue-200 font-bold px-2 py-1 rounded-lg inline-block 
+           drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] text-sm">
+          Main DPS
+        </p>
+      </div>
+    </div>
+
+    
+      <!-- Team Build -->
+<div class="mt-6">
+  <p class="font-semibold mb-3">Team Build:</p>
+  <div class="flex justify-center space-x-8">
+    
+    <!-- Cantarella -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/Ciaccona.png" alt="Cantarella" 
+           class="h-16 w-16 rounded-full border-2 border-pink-400 shadow-md">
+      <span class="mt-4 text-sm">Ciaccona</span>
+    </div>
+
+    <!-- Cartethyia -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/chisa.png" alt="Cartethyia" 
+           class="h-16 w-16 rounded-full border-2 border-green-400 shadow-md">
+      <span class="mt-4 text-sm">Chisa</span>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <!-- Close button -->
+    <button onclick="closeModal('cartethyiaModal')" 
+            class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.9)]">
+      Close
+    </button>
+  </div>
+</div>
+  <!--Augusta Model-->
+  <div id="augustaModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+  <div class="bg-gradient-to-r from-blue-900 via-black to-purple-900 text-white p-6 rounded-lg max-w-md shadow-2xl relative">
+    <h2 class="text-2xl font-extrabold mb-4 text-blue-300 drop-shadow-[0_0_12px_rgba(59,130,246,0.9)]">
+      ✦ Augusta ✦
+    </h2>
+
+    <!-- Live video -->
+    <video autoplay loop muted playsinline 
+           class="w-full h-48 object-cover mb-4 rounded-lg shadow-lg">
+      <source src="video/augusta-wuthering-waves-moewalls-com.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Build layout -->
+    <div class="grid grid-cols-2 gap-6">
+      
+      <!-- Left: Weapon -->
+      <div>
+        <p class="font-semibold mb-2">Weapon</p>
+        <div class="flex items-center space-x-3">
+          <img src="weaponImages/Augusta.png" alt="Weapon" 
+               class="h-16 w-16 rounded border-2 border-blue-400 shadow-md">
+          <span class="text-sm">Thunderflare Dominion</span>
+        </div>
+      </div>
+
+      <!-- Right: Role -->
+      <div>
+        <p class="font-semibold mb-2">Role</p>
+        <p class="bg-blue-500/30 text-blue-200 font-bold px-2 py-1 rounded-lg inline-block 
+           drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] text-sm">
+          Main DPS
+        </p>
+      </div>
+    </div>
+
+    
+      <!-- Team Build -->
+<div class="mt-6">
+  <p class="font-semibold mb-3">Team Build:</p>
+  <div class="flex justify-center space-x-8">
+    
+    <!-- Cantarella -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/Mortefi.png" alt="Cantarella" 
+           class="h-16 w-16 rounded-full border-2 border-pink-400 shadow-md">
+      <span class="mt-4 text-sm">Mortefi</span>
+    </div>
+
+    <!-- Cartethyia -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/Shorekeeper.png" alt="Cartethyia" 
+           class="h-16 w-16 rounded-full border-2 border-green-400 shadow-md">
+      <span class="mt-4 text-sm">Shorekeeper</span>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <!-- Close button -->
+    <button onclick="closeModal('augustaModal')" 
+            class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.9)]">
+      Close
+    </button>
+  </div>
+</div>
+<!-- Iuno Modal -->
+    <div id="iunoModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+  <div class="bg-gradient-to-r from-blue-900 via-black to-purple-900 text-white p-6 rounded-lg max-w-md shadow-2xl relative">
+    <h2 class="text-2xl font-extrabold mb-4 text-blue-300 drop-shadow-[0_0_12px_rgba(59,130,246,0.9)]">
+      ✦ Iuno ✦
+    </h2>
+
+    <!-- Live video -->
+    <video autoplay loop muted playsinline 
+           class="w-full h-48 object-cover mb-4 rounded-lg shadow-lg">
+      <source src="video/iuno-wuwa.3840x2160.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Build layout -->
+    <div class="grid grid-cols-2 gap-6">
+      
+      <!-- Left: Weapon -->
+      <div>
+        <p class="font-semibold mb-2">Weapon</p>
+        <div class="flex items-center space-x-3">
+          <img src="weaponImages/Iuno.png" alt="Weapon" 
+               class="h-16 w-16 rounded border-2 border-blue-400 shadow-md">
+          <span class="text-sm">Moongazer's Sigil</span>
+        </div>
+      </div>
+
+      <!-- Right: Role -->
+      <div>
+        <p class="font-semibold mb-2">Role</p>
+        <p class="bg-blue-500/30 text-blue-200 font-bold px-2 py-1 rounded-lg inline-block 
+           drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] text-sm">
+          Support / Healer / Sub‑DPS
+        </p>
+      </div>
+    </div>
+
+    
+      <!-- Team Build -->
+<div class="mt-6">
+  <p class="font-semibold mb-3">Team Build:</p>
+  <div class="flex justify-center space-x-8">
+    
+    <!-- Cantarella -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/augusta.png" alt="Cantarella" 
+           class="h-16 w-16 rounded-full border-2 border-pink-400 shadow-md">
+      <span class="mt-4 text-sm">Augusta</span>
+    </div>
+
+    <!-- Cartethyia -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/Shorekeeper.png" alt="Cartethyia" 
+           class="h-16 w-16 rounded-full border-2 border-green-400 shadow-md">
+      <span class="mt-4 text-sm">Shorekeeper</span>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <!-- Close button -->
+    <button onclick="closeModal('iunoModal')" 
+            class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.9)]">
+      Close
+    </button>
+  </div>
+</div>
+    <!-- Zani Modal -->
+     <div id="zaniModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+  <div class="bg-gradient-to-r from-blue-900 via-black to-purple-900 text-white p-6 rounded-lg max-w-md shadow-2xl relative">
+    <h2 class="text-2xl font-extrabold mb-4 text-blue-300 drop-shadow-[0_0_12px_rgba(59,130,246,0.9)]">
+      ✦ Zani ✦
+    </h2>
+
+    <!-- Live video -->
+    <video autoplay loop muted playsinline 
+           class="w-full h-48 object-cover mb-4 rounded-lg shadow-lg">
+      <source src="video/zani-wuthering-waves.3840x2160.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Build layout -->
+    <div class="grid grid-cols-2 gap-6">
+      
+      <!-- Left: Weapon -->
+      <div>
+        <p class="font-semibold mb-2">Weapon</p>
+        <div class="flex items-center space-x-3">
+          <img src="weaponImages/zani.png" alt="Weapon" 
+               class="h-16 w-16 rounded border-2 border-blue-400 shadow-md">
+          <span class="text-sm">Blazing Justice</span>
+        </div>
+      </div>
+
+      <!-- Right: Role -->
+      <div>
+        <p class="font-semibold mb-2">Role</p>
+        <p class="bg-blue-500/30 text-blue-200 font-bold px-2 py-1 rounded-lg inline-block 
+           drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] text-sm">
+          Main DPS
+        </p>
+      </div>
+    </div>
+
+    
+      <!-- Team Build -->
+<div class="mt-6">
+  <p class="font-semibold mb-3">Team Build:</p>
+  <div class="flex justify-center space-x-8">
+    
+    <!-- Cantarella -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/Phebe.png" alt="Cantarella" 
+           class="h-16 w-16 rounded-full border-2 border-pink-400 shadow-md">
+      <span class="mt-4 text-sm">Phoebe</span>
+    </div>
+
+    <!-- Cartethyia -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/Shorekeeper.png" alt="Cartethyia" 
+           class="h-16 w-16 rounded-full border-2 border-green-400 shadow-md">
+      <span class="mt-4 text-sm">Shorekeeper</span>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <!-- Close button -->
+    <button onclick="closeModal('zaniModal')" 
+            class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.9)]">
+      Close
+    </button>
+  </div>
+</div>
+<!-- Hiyuki Modal -->
+ <div id="hiyukiModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+  <div class="bg-gradient-to-r from-blue-900 via-black to-purple-900 text-white p-6 rounded-lg max-w-md shadow-2xl relative">
+    <h2 class="text-2xl font-extrabold mb-4 text-blue-300 drop-shadow-[0_0_12px_rgba(59,130,246,0.9)]">
+      ✦ Hiyuki ✦
+    </h2>
+
+    <!-- Live video -->
+    <video autoplay loop muted playsinline 
+           class="w-full h-48 object-cover mb-4 rounded-lg shadow-lg">
+      <source src="video/hiyuki-sakura-wuthering-waves-moewalls-com.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Build layout -->
+    <div class="grid grid-cols-2 gap-6">
+      
+      <!-- Left: Weapon -->
+      <div>
+        <p class="font-semibold mb-2">Weapon</p>
+        <div class="flex items-center space-x-3">
+          <img src="weaponImages/hiyuki.png" alt="Weapon" 
+               class="h-16 w-16 rounded border-2 border-blue-400 shadow-md">
+          <span class="text-sm">Frostborn</span>
+        </div>
+      </div>
+
+      <!-- Right: Role -->
+      <div>
+        <p class="font-semibold mb-2">Role</p>
+        <p class="bg-blue-500/30 text-blue-200 font-bold px-2 py-1 rounded-lg inline-block 
+           drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] text-sm">
+          Main DPS
+        </p>
+      </div>
+    </div>
+
+    
+      <!-- Team Build -->
+<div class="mt-6">
+  <p class="font-semibold mb-3">Team Build:</p>
+  <div class="flex justify-center space-x-8">
+    
+    <!-- Cantarella -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/Lynae.png" alt="Cantarella" 
+           class="h-16 w-16 rounded-full border-2 border-pink-400 shadow-md">
+      <span class="mt-4 text-sm">Lynae</span>
+    </div>
+
+    <!-- Cartethyia -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/chisa.png" alt="Cartethyia" 
+           class="h-16 w-16 rounded-full border-2 border-green-400 shadow-md">
+      <span class="mt-4 text-sm">Chisa</span>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <!-- Close button -->
+    <button onclick="closeModal('hiyukiModal')" 
+            class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.9)]">
+      Close
+    </button>
+  </div>
+</div>
+<!-- Galbrena Modal -->
+  <div id="galbrenaModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+  <div class="bg-gradient-to-r from-blue-900 via-black to-purple-900 text-white p-6 rounded-lg max-w-md shadow-2xl relative">
+    <h2 class="text-2xl font-extrabold mb-4 text-blue-300 drop-shadow-[0_0_12px_rgba(59,130,246,0.9)]">
+      ✦ Galbrena ✦
+    </h2>
+
+    <!-- Live video -->
+    <video autoplay loop muted playsinline 
+           class="w-full h-48 object-cover mb-4 rounded-lg shadow-lg">
+      <source src="video/galbrena-wuthering-waves-moewalls-com.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Build layout -->
+    <div class="grid grid-cols-2 gap-6">
+      
+      <!-- Left: Weapon -->
+      <div>
+        <p class="font-semibold mb-2">Weapon</p>
+        <div class="flex items-center space-x-3">
+          <img src="weaponImages/galbrena.png" alt="Weapon" 
+               class="h-16 w-16 rounded border-2 border-blue-400 shadow-md">
+          <span class="text-sm">Lux & Umbra</span>
+        </div>
+      </div>
+
+      <!-- Right: Role -->
+      <div>
+        <p class="font-semibold mb-2">Role</p>
+        <p class="bg-blue-500/30 text-blue-200 font-bold px-2 py-1 rounded-lg inline-block 
+           drop-shadow-[0_0_8px_rgba(59,130,246,0.8)] text-sm">
+          Main DPS
+        </p>
+      </div>
+    </div>
+
+    
+      <!-- Team Build -->
+<div class="mt-6">
+  <p class="font-semibold mb-3">Team Build:</p>
+  <div class="flex justify-center space-x-8">
+    
+    <!-- Cantarella -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/qiuyuan.png" alt="Cantarella" 
+           class="h-16 w-16 rounded-full border-2 border-pink-400 shadow-md">
+      <span class="mt-4 text-sm">Qiuyuan</span>
+    </div>
+
+    <!-- Cartethyia -->
+    <div class="flex flex-col items-center space-x-3">
+      <img src="Teambuildicons/Shorekeeper.png" alt="Cartethyia" 
+           class="h-16 w-16 rounded-full border-2 border-green-400 shadow-md">
+      <span class="mt-4 text-sm">Shorekeeper</span>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <!-- Close button -->
+    <button onclick="closeModal('galbrenaModal')" 
+            class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.9)]">
+      Close
+    </button>
+  </div>
+</div>
+  <!-- About Section -->
+ <section id="about" 
+         class="px-6 py-16 bg-slate-900 text-center scroll-mt-40">
+  <h2 class="text-4xl font-bold text-transparent bg-clip-text 
+             bg-gradient-to-r from-purple-400 to-pink-400 mb-10 
+             drop-shadow-[0_0_15px_rgba(168,85,247,0.9)] 
+             border-4 border-transparent rounded-lg inline-block 
+             px-4 py-2 bg-gradient-to-r from-purple-900 to-pink-900">
+    About My WuWa Gallery
+  </h2>
+
+
+
+  <!-- First box -->
+  <div class="flex items-start max-w-3xl mx-auto bg-gray-800/70 rounded-lg p-6 mb-16 shadow-lg">
+    <img src="img/about section pic2.png" alt="Avatar 1" 
+         class="w-16 h-16 rounded-full mr-4 shadow-md">
+    <p class="text-gray-300 leading-relaxed text-left">
+      ✦ I built this site to collect and show off Wuthering Waves characters and artwork. 
+      It’s a simple gallery where I can practice my Tailwind skills and share the designs I enjoy.
+    </p>
+  </div>
+
+  <!-- Second box -->
+  <div class="flex items-start max-w-3xl mx-auto bg-gray-800/70 rounded-lg p-6 mt-16 shadow-lg">
+    <img src="img/about section pic.png" alt="Avatar 2" 
+         class="w-16 h-16 rounded-full mr-4 shadow-md">
+    <p class="text-gray-300 leading-relaxed text-left">
+      ✦ This project is just for fun and learning. I’ll keep adding new characters, 
+      fixing the layout, and making it look cooler as I go. It’s my way of mixing WuWa with web dev.
+    </p>
+  </div>
+    <!-- Third box -->
+  <div class="flex items-start max-w-3xl mx-auto bg-gray-800/70 rounded-lg p-6 mt-16 shadow-lg">
+    <img src="img/image copy.png" alt="Avatar 3" 
+         class="w-16 h-16 rounded-full mr-4 shadow-md">
+    <p class="text-gray-300 leading-relaxed text-left">
+      ✦ My gallery isn’t just for artwork it’s also a place to explore WuWa team builds 
+      and weapon setups. I want to highlight strategies, combos, and gear choices that 
+      make resonators shine in battle.
+    </p>
+  </div>
+    <!-- Fourth box: Future Plans -->
+  <div class="flex items-start max-w-3xl mx-auto bg-gray-800/70 rounded-lg p-6 mt-16 shadow-lg">
+    <img src="img/image copy 2.png" alt="Avatar 3" 
+         class="w-16 h-16 rounded-full mr-4 shadow-md">
+    <p class="text-gray-300 leading-relaxed text-left">
+      ✦ In the future, I plan to expand this gallery with more WuWa content — 
+      detailed team build guides, weapon recommendations, and maybe even tier lists. 
+      I want this site to grow into a helpful resource for fans who enjoy experimenting 
+      with resonators and strategies.
+    </p>
+  </div>
+
+
+</section>
+<!-- Contact / Feedback Section -->
+<section id="contact" 
+         class="relative px-6 py-20 text-center bg-cover bg-center scroll-mt-40" 
+         style="background-image: url('wuwa backgroundpic/image copy 6.png');">
+  <!-- Dark overlay to fix bright background -->
+  <div class="absolute inset-0 bg-black/70"></div>
+
+  <!-- Content -->
+  <div class="relative max-w-4xl mx-auto">
+    <h2 class="text-4xl font-bold text-transparent bg-clip-text 
+               bg-gradient-to-r from-cyan-400 to-purple-500 mb-12 
+               drop-shadow-[0_0_25px_rgba(56,189,248,0.9)]">
+      Contact / Feedback
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Info card -->
+      <div class="bg-gray-900/90 rounded-xl shadow-lg p-8 text-left">
+        <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Get in Touch</h3>
+        <p class="text-gray-200 mb-6">
+          ✦ Share your ideas, questions, or feedback I’d love to hear from you.
+        </p>
+       <ul class="space-y-3 text-purple-300">
+  <li>
+    📧 Email: 
+    <a href="mailto:Sithyjohn59@gmail.com" 
+       class="text-cyan-300 hover:text-cyan-400 hover:shadow-[0_0_10px_rgba(56,189,248,0.8)] transition">
+      Sithyjohn59@gmail.com
+    </a>
+  </li>
+  <li>
+    💬 Discord: 
+    <a href="https://discordapp.com/users/yourID" 
+       class="text-cyan-300 hover:text-cyan-400 hover:shadow-[0_0_10px_rgba(56,189,248,0.8)] transition">
+      Johnsigma
+    </a>
+  </li>
+  <li>
+    🌐 Social: 
+    <a href="https://t.me/whatawasteoftime" 
+       class="text-cyan-300 hover:text-cyan-400 hover:shadow-[0_0_10px_rgba(56,189,248,0.8)] transition">
+      Telegram
+    </a> / 
+    <a href="https://wa.me/885 096 51 87 421" 
+       class="text-cyan-300 hover:text-cyan-400 hover:shadow-[0_0_10px_rgba(56,189,248,0.8)] transition">
+      WhatsApp
+    </a>
+  </li>
+</ul>
+
+          <!-- Sticker under the card -->
+  <img src="img/abby.png" alt="WuWa Sticker"
+       class="mx-auto w-36 mt-10 shadow-lg 
+              hover:scale-105 transition transform hover:shadow-[0_0_25px_rgba(56,189,248,0.9)]">
+      </div>
+
+      <!-- Form card -->
+      <div class="bg-gray-900/90 rounded-xl shadow-lg p-8">
+        <form onsubmit="alert('Thanks for your feedback ✦'); return false;" action="#" method="POST" class="space-y-4 text-left">
+          <div>
+            <label for="name" class="block font-bold text-cyan-400 mb-1">Your Name</label>
+            <input type="text" id="name" name="name" required
+                   class="w-full px-4 py-2 rounded-md bg-gray-800 text-cyan-200 border border-cyan-500 
+                          focus:outline-none focus:ring-2 focus:ring-purple-400">
+          </div>
+          <div>
+            <label for="email" class="block font-bold text-cyan-400 mb-1">Your Email</label>
+            <input type="email" id="email" name="email" required
+                   class="w-full px-4 py-2 rounded-md bg-gray-800 text-cyan-200 border border-purple-500 
+                          focus:outline-none focus:ring-2 focus:ring-cyan-400">
+          </div>
+          <div>
+            <label for="message" class="block font-bold text-cyan-400 mb-1">Your Message</label>
+            <textarea id="message" name="message" rows="4" required
+                      class="w-full px-4 py-2 rounded-md bg-gray-800 text-cyan-200 border border-cyan-500 
+                             focus:outline-none focus:ring-2 focus:ring-purple-400"></textarea>
+          </div>
+          <button type="submit"
+                  class="w-full py-3 rounded-md bg-gradient-to-r from-cyan-500 to-purple-600 
+                         text-black font-bold shadow-md hover:scale-105 transition">
+            Send Feedback
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+</body>
+</html>
